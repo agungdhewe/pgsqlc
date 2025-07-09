@@ -1,3 +1,6 @@
+import pgp from 'pg-promise';
+
+
 export function createWhereClause(criteria, searchMap) {
     try {
 
