@@ -1,6 +1,6 @@
 {
   "name": "@agung_dhewe/pgsqlc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sql Utility untuk mempermudah membuat query insert, update, delete dialect postgres, menggunakan pg-promise",
   "main": "./src/index.mjs",
   "scripts": {
