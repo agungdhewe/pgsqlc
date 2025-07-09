@@ -1,0 +1,33 @@
+{
+  "name": "@agung_dhewe/pgsqlc",
+  "version": "1.0.0",
+  "description": "Sql Utility untuk mempermudah membuat query insert, update, delete dialect postgres, menggunakan pg-promise",
+  "main": "index.mjs",
+  "scripts": {
+    "test-select": "node ./test-select.mjs",
+    "test-insert": "node ./test-insert.mjs",
+    "test-update": "node ./test-update.mjs",
+    "test-delete": "node ./test-delete.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agungdhewe/pgsqlc.git"
+  },
+  "keywords": [
+    "query-builder",
+    "declarative",
+    "postgresql"
+  ],
+  "author": "Agung Nugroho",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/agungdhewe/pgsqlc/issues"
+  },
+  "homepage": "https://github.com/agungdhewe/pgsqlc#readme",
+  "dependencies": {
+    "pg-promise": "^11.15.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.1.0"
+  }
+}

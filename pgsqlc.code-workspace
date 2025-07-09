@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.insertSpaces": false,
+		"codium.codeCompletion.enable": false
+	},
+
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "1. test-insert",
+				"command": "npm run test-insert",
+				"request": "launch",
+				"type": "node-terminal"
+			},
+		]
+	}
+}
