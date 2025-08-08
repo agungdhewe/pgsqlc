@@ -23,7 +23,7 @@ export function createWhereClause(criteria, searchMap) {
 				
 				Object.assign(queryParams, values)
 				whereClause.push('(' + parts.join(') OR (') + ')')
-			} else if (typeof searchvalue === "string") {
+			} else if (typeof searchvalue === "string" || searchvalue===null) {
 				queryParams[searchkey] = searchvalue
 				whereClause.push(searchMap[searchkey])
 			} else if (typeof searchvalue==='number' || typeof searchvalue==='boolean') {
@@ -42,7 +42,7 @@ export function createWhereClause(criteria, searchMap) {
 
 
 export function createSqlSelect(param) {
-	const { tablename, columns=[], whereClause = '', sort={}, limit=0, offset=0 } = param
+	const { tablename, columns=[], whereClause = '', sort={}, limit=0, offset=0, queryParams={} } = param
 
 	try {
 
