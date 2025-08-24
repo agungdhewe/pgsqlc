@@ -20,18 +20,58 @@ export default new class {
 		return sel.createSqlSelect(param)
 	}
 
+
+
+	// insert
+
+
 	createInsertCommand(tablename, data, keys) {
 		return ins.createInsertCommand(this, tablename, data, keys)
+	}
+
+	createInsertStatement(tablename, data, keys, name) {
+		return ins.createInsertStatement(this, tablename, data, keys, name)
+	}
+
+
+	// update 
+	createUpdateParameters(data, keys) {
+		return upd.createUpdateSql(this, data, keys)
+	}
+
+	createUpdateSql(tablename, data, keys) {
+		return upd.createUpdateSql(this, tablename, data, keys)
 	}
 
 	createUpdateCommand(tablename, data, keys) {
 		return upd.createUpdateCommand(this, tablename, data, keys)
 	}
 
-	createDeleteCommand(tablename, keys) {
-		return del.createDeleteCommand(this, tablename, keys)
+	createUpdateStatement(tablename, data, keys, name) {
+		return upd.createUpdateStatement(this, tablename, data, keys, name)
 	}
 
+
+
+	// delete
+	createDeleteParameters(data, keys) {
+		return createDeleteParameters(this, data, keys)
+	}
+
+
+	createDeleteSql(tablename, keys) {
+		return createDeleteSql(this, tablename, keys)
+	}
+
+	createDeleteCommand(tablename, data, keys) {
+		return del.createDeleteCommand(this, tablename, data, keys)
+	}
+
+	createDeleteStatement(tablename, data, keys, name) {
+		return del.createDeleteStatement(this, tablename, keys, data, name)
+	}
+
+	// lain-lain
 	async lookupdb(db, tablename, key, value) {
 		return await lookup(this, db, tablename, key, value)
 	}
