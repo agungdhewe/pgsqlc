@@ -8,6 +8,9 @@ export function createUpdateParameters(self, data, keys) {
 		}
 	}
 
+	const excludedFields = keys;
+	const columns = Object.keys(data).filter(col => !excludedFields.includes(col));
+
 	const values = [
 		...columns.map(col => data[col]),
 		...keys.map(key => data[key])
@@ -45,7 +48,7 @@ export function createUpdateCommand(self, tablename, data, keys) {
 
         async execute(data) {
 			const db = cmd.tx ?? self.db;
-			const values = createUpdateParameters(data, keys)
+			const values = createUpdateParameters(self, data, keys)
 
 			try {
 				const result = await db.oneOrNone(sql, values);
@@ -75,7 +78,7 @@ const cmd = {}
 
         async execute(data) {
 			const db = cmd.tx ?? self.db;
-			const values = createUpdateParameters(data, keys)
+			const values = createUpdateParameters(self, data, keys)
 
 			try {
 				ps.values = values;

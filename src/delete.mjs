@@ -24,7 +24,7 @@ export function createDeleteSql(self, tablename, keys) {
 }
 
 
-export function createDeleteCommand(this, tablename, data, keys) {
+export function createDeleteCommand(self, tablename, keys) {
 	const cmd = {}
 	const sql = createDeleteSql(self, tablename, keys)
 
@@ -50,7 +50,7 @@ export function createDeleteCommand(this, tablename, data, keys) {
 }
 
 
-export function createDeleteStatement(this, tablename, keys, data, name) {
+export function createDeleteStatement(self, tablename, keys, name) {
 	const cmd = {}
 	const sql = createDeleteSql(self, tablename, keys)
 	
