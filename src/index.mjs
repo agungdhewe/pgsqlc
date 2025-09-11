@@ -81,8 +81,13 @@ export default new class {
 async function lookup(self, db, tablename, key, value) {
 	try {
 		const sql = `select * from ${tablename} where ${key}=\${value}`
-		const row = await db.one(sql, {value: value});
-		return row
+		const row = await db.oneOrNone(sql, {value: value});
+
+		if (row==null) {
+			return {}
+		} else {
+			return row
+		}
 	} catch (err) {
 		throw err
 	}
