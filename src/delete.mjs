@@ -43,8 +43,21 @@ export function createDeleteCommand(self, tablename, keys) {
 			} catch (err) {
 				throw err
 			}
+		},
 
+		async executeMultirow(data) {
+			const db = cmd.tx ?? self.db;
+			const values = createDeleteParameters(self, data, keys)
+
+			try {
+				const result = await db.any(sql, values);
+				return result;
+			} catch (err) {
+				throw err
+			}
 		}
+
+
 	}
 	
 }
