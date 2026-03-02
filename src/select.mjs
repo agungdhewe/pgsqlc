@@ -57,13 +57,18 @@ export function createSqlSelect(param) {
 		}
 
 		// sort column
-		if (Object.keys(sort).length > 0) {
-			const sortClause = []
-			for (var sortkey in sort) {
-				sortClause.push(`${sortkey} ${sort[sortkey]}`)
+		if (typeof sort === 'string') {
+			sql += ' order by ' + sort
+		} else {
+			if (Object.keys(sort).length > 0) {
+				const sortClause = []
+				for (var sortkey in sort) {
+					sortClause.push(`${sortkey} ${sort[sortkey]}`)
+				}
+				sql += ' order by ' + sortClause.join(', ')
 			}
-			sql += ' order by ' + sortClause.join(', ')
 		}
+
 
 		// limit rows to retrieve
 		if (limit>0) {
